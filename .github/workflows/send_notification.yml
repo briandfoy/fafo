@@ -1,6 +1,5 @@
-name: Send notification
-on:
-    workflow_dispatch:
+name: Make issue
+on: [push]
 permissions:
   contents: read
   issues: write
