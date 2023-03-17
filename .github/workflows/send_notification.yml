@@ -9,6 +9,6 @@ jobs:
             - uses: JasonEtco/create-an-issue@v2
               id: create-issue
               env:
-                GITHUB_TOKEN: ${{ secrets.ISSUE_GITHUB_TOKEN }}
+                GITHUB_TOKEN: ${{ secrets.ISSUES_GITHUB_TOKEN }}
               with:
                 filename: .github/new_release_template.md
