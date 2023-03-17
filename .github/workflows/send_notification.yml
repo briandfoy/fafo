@@ -8,6 +8,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+            - name: Setup environment
+              id: setenv
+              run: |
+                echo "VERSION=1234" >> $GITHUB_ENV
             - uses: JasonEtco/create-an-issue@v2
               id: create-issue
               env:
