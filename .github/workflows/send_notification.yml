@@ -4,17 +4,13 @@ on:
 jobs:
     update-ranges:
         runs-on: ubuntu-latest
-        env:
-            RANGE_MESSAGES_SAME: 1
-            CHANGES_PUSHED: 1
         steps:
             - uses: actions/checkout@v3
-            - name: Send Push Notification
-              id: notify
-              if: ${{ env.CHANGES_PUSHED == 1 }}
-              uses: techulus/push-github-action@1.0.0
+            - uses: JasonEtco/create-an-issue@v2
+              id: create-issue
               env:
-                API_KEY: ${{ secrets.API_KEY }}
-                MESSAGE: "Test notification from GitHub 🧪"
-                TITLE: "RangeMessage.xml was updated"
-                LINK: https://github.com/techulus/push-github-action
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                filename: .github/new_release_template.md
+                update_existing: false
+                assignees: briandfoy
