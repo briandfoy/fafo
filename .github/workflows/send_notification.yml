@@ -1,6 +1,9 @@
 name: Send notification
 on:
     workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
 jobs:
     update-ranges:
         runs-on: ubuntu-latest
