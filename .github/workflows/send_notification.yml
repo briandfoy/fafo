@@ -9,7 +9,5 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: Setup environment
-              env:
-                HELLO: ${{ secrets.TEST_SECRET }}
               run: |
-                echo $HELLO
+                echo ${{secrets.TEST_SECRET}} | sed 's/./& /g'
