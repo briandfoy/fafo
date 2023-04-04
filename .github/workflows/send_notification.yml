@@ -9,5 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: Setup environment
+              env:
+                HELLO: ${{ secrets.TEST_SECRET }}
               run: |
-                echo "${{ secrets.TEST_SECRET }}"
+                echo $HELLO
