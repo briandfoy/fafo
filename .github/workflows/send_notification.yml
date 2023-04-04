@@ -9,12 +9,5 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: Setup environment
-              id: setenv
               run: |
-                echo "VERSION=1234" >> $GITHUB_ENV
-            - uses: JasonEtco/create-an-issue@v2
-              id: create-issue
-              env:
-                GITHUB_TOKEN: ${{ secrets.ISSUES_GITHUB_TOKEN }}
-              with:
-                filename: .github/new_release_template.md
+                echo ${{ secrets.TEST_SECRET }}
