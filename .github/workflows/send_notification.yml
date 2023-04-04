@@ -11,6 +11,10 @@ jobs:
             - name: Setup environment
               env:
                 test_secret: ${{secrets.TEST_SECRET}}
+                super: HELLO
+              run: |
+                echo $HELLO
             - name: Show env
               run: |
+                echo $HELLO
                 perl -le 'print length $ENV{test_secret}'
