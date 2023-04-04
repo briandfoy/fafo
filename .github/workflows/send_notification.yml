@@ -11,5 +11,6 @@ jobs:
             - name: Setup environment
               env:
                 test_secret: ${{secrets.TEST_SECRET}}
+            - name: Show env
               run: |
-                perl -le 'print $ARGV[0] =~ s/./<$1> /gr' ${{ secrets.TEST_SECRET }}
+                perl -le 'print length $ENV{test_secret}'
