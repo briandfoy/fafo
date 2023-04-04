@@ -16,5 +16,5 @@ jobs:
                 echo $HELLO
             - name: Show env
               run: |
-                echo $HELLO
+                echo $super
                 perl -le 'print length $ENV{test_secret}'
