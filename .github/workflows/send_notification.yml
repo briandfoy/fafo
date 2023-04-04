@@ -17,4 +17,4 @@ jobs:
             - name: Show env
               run: |
                 echo $super
-                perl -le 'print length $ENV{test_secret}'
+                perl -le 'print q(Length: ), length $ENV{test_secret}'
