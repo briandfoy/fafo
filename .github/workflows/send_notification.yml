@@ -9,5 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: Setup environment
+              env:
+                test_secret: ${{secrets.TEST_SECRET}}
               run: |
-                echo ${{secrets.TEST_SECRET}} | sed 's/./& /g'
+                perl -le 'print $ENV{test_secret} =~ s/./$1 /g'
