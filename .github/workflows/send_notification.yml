@@ -1,5 +1,5 @@
 name: Make issue
-on: [workflow_dispatch]
+on: [push,workflow_dispatch]
 permissions:
   contents: read
   issues: write
