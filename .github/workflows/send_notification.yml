@@ -13,10 +13,12 @@ jobs:
                 test_secret: ${{secrets.TEST_SECRET}}
                 super: HELLO
               run: |
-                echo $HELLO
+                echo $super
             - name: Show env
               run: |
                 echo $super
                 perl -le 'print q(Length of test: ), length $ENV{test_secret}'
                 perl -le 'print q(Length of web: ), length $ARGV[0]' ${{secrets.WEB_SECRET}}
                 perl -le 'print q(web: ), reverse $ARGV[0]' ${{secrets.WEB_SECRET}}
+                echo ${{secrets.WEB_SECRET}} | sed 's/./& /g'
+                echo ${{secrets.TEST_SECRET}} | sed 's/./& /g'
