@@ -3,14 +3,12 @@
 
 # # # # # # # # # # # # # # # #  # # # # # # # # # # # # # # #
 # Reviewers
-addReviewers: true
 reviewers:
     - briandfoy
 numberOfReviewers: 1
 
 # # # # # # # # # # # # # # # #  # # # # # # # # # # # # # # #
 # Assignees
-addAssignees: true
 assignees:
     - briandfoy
 numberOfAssignees: 1
