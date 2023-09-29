@@ -1,8 +1,11 @@
-name: "Open pull request"
+name: "Manage opened pull request"
 on:
     pull_request:
-        types: [opened]
-
+        types:
+            - opened
+    pull_request_target:
+        types:
+            - opened
 jobs:
   manage:
     permissions:
@@ -11,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v3
+        # https://github.com/marketplace/actions/labeler
         - uses: actions/labeler@v4
         # https://github.com/marketplace/actions/auto-assign-action
         - uses: kentaro-m/auto-assign-action@v1.2.5
