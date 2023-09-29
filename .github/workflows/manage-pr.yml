@@ -20,5 +20,6 @@ jobs:
         # https://github.com/marketplace/actions/auto-assign-action
         - uses: wow-actions/auto-assign@v3
           with:
+            GITHUB_TOKEN: ${{ github.token }}
             reviewers: briandfoy
             assignees: briandfoy
