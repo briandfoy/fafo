@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use v5.10;
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 say STDERR "$0: $VERSION";
 
 our( $repo, $id ) = @ARGV;
@@ -41,7 +41,7 @@ sub curl {
 
 	my $command = [
 		'curl',
-		'-v,
+		'-v',
 		'--silent',
 		'-X', $method,
 		'-H',  q('Accept: application/vnd.github.v3+json'),
