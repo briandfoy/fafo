@@ -1,0 +1,25 @@
+name: merge-labeler
+
+# https://docs.github.com/en/rest/overview/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28#repository-permissions-for-pull-requests
+permissions:
+    pull-requests: write
+    issues: write
+
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  accept:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        echo ${{ github.token }} | cat >> .token
+        echo REPO ${{ github.repository }}
+        echo ID ${{ github.event.number }}
+        perl util/merge-labeler  ${{ github.repository }} ${{ github.event.number }}
+
