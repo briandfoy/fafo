@@ -12,13 +12,12 @@ on:
       - closed
   workflow_dispatch:
 
-environment: merge
 
 jobs:
   accept:
     runs-on: ubuntu-latest
+    environment: merge
     steps:
-    - uses: actions/checkout@v3
     - run: |
         echo FOO ${{ secrets.FOO }}
         echo BAR ${{ secrets.BAR }}
