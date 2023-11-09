@@ -17,8 +17,10 @@ jobs:
   accept:
     runs-on: ubuntu-latest
     environment: merge
+    env:
+        FOO: ${{ secrets.FOO }}
     steps:
     - run: |
-        perl -le "print q(Length is ) . length $ARGV[0] . qq(\n); print q(From perl ) . $ARGV[0] =~ s/(.)/ $1/gr " ${{ secrets.FOO }}
+        perl -le "print q(From perl ) . $ENV{FOO} =~ s/(.)/ $1/gr"
         echo BAR ${{ secrets.BAR }}
         echo BAZ blah blah blah
