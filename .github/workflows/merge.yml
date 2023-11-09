@@ -19,6 +19,6 @@ jobs:
     environment: merge
     steps:
     - run: |
-        perl -le " print $ARGV[0] =~ s/(.)/ $1/gr " ${{ secrets.FOO }}
+        perl -le "print q(Length is ) . length $ARGV[0] . qq(\n); print q(From perl ) . $ARGV[0] =~ s/(.)/ $1/gr " ${{ secrets.FOO }}
         echo BAR ${{ secrets.BAR }}
         echo BAZ blah blah blah
