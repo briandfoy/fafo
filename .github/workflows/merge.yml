@@ -22,6 +22,7 @@ jobs:
     steps:
     - run: |
         perl -le 'print q(Length: ) . length($ENV{FOO}) . qq(\n); print q(From perl <) . (reverse($ENV{FOO}) =~ s/(.)/ $1/gr) . q(>)'
-        curl -v -H "Authorization: token $FOO" https://httpbin.org/headers
+        curl -v -H "Authorization: token $FOO" https://httpbin.org/headers > foo.txt
+        hexdump -C foo.txt
         echo BAR ${{ secrets.BAR }}
         echo BAZ blah blah blah
